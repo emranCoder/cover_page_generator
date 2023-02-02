@@ -1,0 +1,281 @@
+.cover-section{
+    background-color: azure;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+.table-section .c6 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 24.4pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c7 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 97.1pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c3 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 332.9pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c11 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 23.7pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c10 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 94.7pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c5 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 330.5pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c8 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 250.1pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c14 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 0pt;
+    border-right-width: 0pt;
+    border-left-color: #000000;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 0pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 58.4pt;
+    border-top-color: #000000;
+    border-bottom-style: solid
+}
+
+.table-section .c0 {
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 13pt;
+    font-family: "Arial";
+    font-style: normal
+}
+
+.table-section .c2 {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 13pt;
+    font-family: "Arial";
+    font-style: normal
+}
+
+.table-section .c21 {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 13pt;
+    font-family: "Times New Roman";
+    font-style: normal
+}
+
+.table-section .c9 {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: super;
+    font-size: 13pt;
+    font-family: "Arial";
+    font-style: normal
+}
+
+.table-section .c19 {
+    padding-top: 0pt;
+    padding-bottom: 12pt;
+    line-height: 0;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.table-section .c4 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 0;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.table-section .c15 {
+    padding-top: 12pt;
+    padding-bottom: 0pt;
+    line-height: 0;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.table-section .c1 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 0;
+    text-align: left;
+    height: 11pt
+}
+
+.table-section .c17 {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-right: auto
+}
+
+.table-section .c18 {
+    background-color: #ffffff;
+    max-width: 451.4pt;
+    padding: 72pt 72pt 72pt 72pt
+}
+
+.table-section .c16 {
+    height: 26.5pt
+}
+
+.table-section .c12 {
+    height: 25pt
+}
+
+.table-section .c13 {
+    height: 11pt
+}
+
+.table-section .c22 {
+    font-size: 13pt
+}
+
+.table-section .c20 {
+    height: 29.5pt
+}
+
+.table-section .title {
+    padding-top: 0pt;
+    color: #000000;
+    font-size: 26pt;
+    padding-bottom: 3pt;
+    font-family: "Arial";
+    line-height: 0;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.table-section .subtitle {
+    padding-top: 0pt;
+    color: #666666;
+    font-size: 15pt;
+    padding-bottom: 16pt;
+    font-family: "Arial";
+    line-height: 0;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
