@@ -12,7 +12,6 @@ function App() {
       <div className="container">
         <Cover />
       </div>
-      <MyDocument />
     </>
   );
  

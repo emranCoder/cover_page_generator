@@ -1,6 +1,22 @@
 import React from 'react';
-import { Page, Text, view, img, Document, StyleSheet, View } from '@react-pdf/renderer';
-import logo from '../Metropolitan_university.png';
+import { Page, Text, Image, Document, StyleSheet, View } from '@react-pdf/renderer';
+import logo from '../Metropolitanuniversity.png';
+import { Font } from '@react-pdf/renderer'
+import font from './CalibriRegular.ttf'
+import fontBold from './CalibriBold.TTF'
+
+
+Font.register({
+  family: 'Calibri', 
+  format: "truetype",
+  src: font,
+})
+Font.register({
+  family: 'CalibriBold', 
+  format: "truetype",
+  src: fontBold,
+})
+
 
 
 // Create styles
@@ -22,186 +38,67 @@ const styles = StyleSheet.create({
     borderRadius: '10px',
     padding: '0.5in',
   },
-  heading: {
-    textAlign: 'center',
-    fontSize: '22pt',
-    fontWeight: 'bold',
-    margin: '70px 0px'
+  image: {
+    width: '350px',
+    alignSelf: 'center',
+    marginTop: '50px',
+    marginBottom: '10px',
+  },
+  titleSection: {
+    fontSize: '13pt',
+    fontFamily: 'CalibriBold',
   },
   section: {
-    margin: 10,
-    padding: 10,
+    flexDirection: 'row',
+    flexRow: 1
   },
-  image: {
-    width: '500px',
-    margin: 'auto',
-    display: 'flex',
-  },
-  title_section: {
-    fontWeight: 'bold',
-  },
+  heading: {
+    fontSize: '22pt',
+    fontFamily: 'CalibriBold',
+    alignSelf: 'center',
+    marginTop: '50px',
+    marginBottom: '20px',
+  }
+
 });
 
+
 // Create Document Component
-const MyDocument = () => {
+const MyDocument = (porps) => {
 
   
   return (
-  <Document>
+    <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.view}>
-        <img style={styles.image} src={logo} />
-        <h3 style={styles.heading}>ASSIGNMENT - </h3>
-        <div style={{ fontSize: '14pt' }}>
-          <span style={styles.title_section}>Title : </span><span>Lab Assignment – 3</span>
-          <br />
-          <span style={styles.title_section}>Course Code : </span><span>CSS-122</span>
-        </div>
-        <p class="c15"><span class="c0">&nbsp;</span></p>
-        <p class="c15"><span class="c0">&nbsp;</span></p>
-        <table class="table-section c17">
-          <tr class="c16">
-            <td class="c7" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">Submitted To</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">:</span></p>
-            </td>
-            <td class="c5" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-          </tr>
-          <tr class="c12">
-            <td class="c7" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c5" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">SUHEL AHMED</span></p>
-            </td>
-          </tr>
-          <tr class="c12">
-            <td class="c7" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c5" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">LECTURER</span></p>
-            </td>
-          </tr>
-          <tr class="c12">
-            <td class="c7" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c5" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">Dept. of Computer Science &amp; Engineering, MU</span></p>
-            </td>
-          </tr>
-        </table>
-        <p class="c15"><span class="c0">&nbsp;</span></p>
-        <table class="table-section c17">
-          <tr class="c16">
-            <td class="c10" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">Submitted By</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">:</span></p>
-            </td>
-            <td class="c14" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c8" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-          </tr>
-          <tr class="c12">
-            <td class="c10" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c3" colspan="3" rowspan="1">
-              <p class="c4"><span class="c0">MD.EMRAN ALAM</span></p>
-            </td>
-          </tr>
-          <tr class="c12">
-            <td class="c10" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c14" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">ID No</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">:</span></p>
-            </td>
-            <td class="c8" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">221-115-110</span></p>
-            </td>
-          </tr>
-          <tr class="c20">
-            <td class="c10" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c14" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">Batch </span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">:</span></p>
-            </td>
-            <td class="c8" colspan="1" rowspan="1">
-              <p class="c4"><span class="c22">56</span><span class="c9">th</span></p>
-            </td>
-          </tr>
-          <tr class="c12">
-            <td class="c10" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c14" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">Section</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">:</span></p>
-            </td>
-            <td class="c8" colspan="1" rowspan="1">
-              <p class="c4"><span class="c2">C</span></p>
-            </td>
-          </tr>
-          <tr class="c12">
-            <td class="c10" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c11" colspan="1" rowspan="1">
-              <p class="c4"><span class="c0">&nbsp;</span></p>
-            </td>
-            <td class="c3" colspan="3" rowspan="1">
-              <p class="c4"><span class="c0">Dept. of Computer Science &amp; Engineering, MU</span></p>
-            </td>
-          </tr>
-        </table>
-        <p class="c15"><span class="c0">&nbsp;</span></p>
-        <div style={{ fontSize: '14pt' }}>
-          <span style={styles.title_section}>Date of Submission : </span><span> August 31,2022</span>
-        </div>
+        <Image img style={styles.image} src={logo} />
+        <Text style={styles.heading} >ASSIGNMENT - {porps.assinNo}</Text>
+        <View style={{flexDirection: 'row', flexRow: '1', marginTop: '30px'  }}>
+          <Text style={styles.titleSection}>Title : </Text>
+          <Text style={{ fontSize: '13px' }}>{porps.assinTitle}</Text>
+        </View>
+        <View style={styles.section}>
+          <Text style={styles.titleSection}>Course Code : </Text>
+          <Text style={{ fontSize: '13px' }}>{porps.courseCode}</Text>
+        </View>
+        <View style={{marginTop: '50px'}}>
+          <Text style={styles.titleSection}>Submitted To : </Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.facultyName}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.facultyDesignation}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {porps.uniName}, MU</Text>
+        </View>
+        <View style={{marginTop: '50px'}}>
+          <Text style={styles.titleSection}>Submitted By : </Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.name}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>ID No    : {porps.id}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Batch    : {porps.batch}th</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Section :  {porps.section}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{(porps.uniOption==1) ? `Dept. of ${porps.uniName}, MU`:"null"}</Text>
+        </View>
+        <View style={{flexDirection: 'row', flexRow: '1', marginTop: '100px'}}>
+          <Text style={styles.titleSection}>Date of Submission : </Text>
+          <Text style={{ fontSize: '13px' }}>{porps.assinDate}</Text>
+        </View>
       </View>
     </Page>
   </Document>
