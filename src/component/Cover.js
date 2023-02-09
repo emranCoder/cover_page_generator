@@ -47,9 +47,7 @@ export default function Cover(props) {
 
   return (
     <>
-      <div className='row'>
-        <form onSubmit={handleSubmit}>
-          <div className="row">
+        <form onSubmit={handleSubmit} className="row">
             {/* Student Details */}
             <div className="cover-section col-md-6 ">
               <h4 className='text-center'>Student Details</h4>
@@ -135,9 +133,7 @@ export default function Cover(props) {
                 <div className='d-none'><PDFViewer></PDFViewer></div>
               </PDFDownloadLink></button>
             </div>
-          </div>
         </form>
-      </div>
     </>
   )
 }

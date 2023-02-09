@@ -1,7 +1,17 @@
+body
+{
+    background-color: azure;
+
+}
+
 .cover-section{
     background-color: azure;
     padding: 20px 10px;
     border-radius: 10px;
+}
+.cover-section {
+    border: 3px solid white;
+    border-radius: 20px;
 }
 a {
     color: white;
