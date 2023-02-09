@@ -1,6 +1,5 @@
 import './App.css';
 import Cover from './component/Cover';
-import MyDocument from './component/MyDocument';
 import Header from './component/Header';
 
 

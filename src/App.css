@@ -7,3 +7,10 @@ a {
     color: white;
     text-decoration: none;
 }
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.main-logo {
+    width: 70px;
+}
