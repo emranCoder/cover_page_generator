@@ -1,19 +1,30 @@
 import './App.css';
 import Cover from './component/Cover';
 import Header from './component/Header';
+import AboutUs from './component/AboutUs';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
 function App() {
   return (
     <>
-      <Header />
-      <div className="container">
-        <Cover />
-      </div>
+      <BrowserRouter>
+        <Header />
+        <div className="container">
+          <Routes>
+            <Route>
+              <Route path='/' element={<Cover />} />
+              <Route path="/aboutus" element={<AboutUs />} />
+            </Route>
+          </Routes>
+
+        </div>
+      </BrowserRouter>
     </>
   );
- 
+
 }
 
 export default App;

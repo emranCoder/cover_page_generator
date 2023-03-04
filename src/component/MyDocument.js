@@ -93,7 +93,7 @@ const MyDocument = (porps) => {
           <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>ID No    : {porps.id}</Text>
           <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Batch    : {porps.batch}th</Text>
           <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Section :  {porps.section}</Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{(porps.uniOption==1) ? `Dept. of ${porps.uniName}, MU`:"null"}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {porps.uniName}, MU</Text>
         </View>
         <View style={{flexDirection: 'row', flexRow: '1', marginTop: '100px'}}>
           <Text style={styles.titleSection}>Date of Submission : </Text>

@@ -24,3 +24,30 @@ img {
 .main-logo {
     width: 70px;
 }
+.dev-title{
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.dev-img{
+    margin:  auto;
+}
+.dev-dtl{
+    text-align: center;
+}
+.dev-dtl p{
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 20px;
+}
+footer
+{
+    margin: 20px 0px;
+    text-align: center;
+    color: #6f6e6e;
+}
+
+footer a{
+    color: brown;
+}
