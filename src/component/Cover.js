@@ -12,6 +12,7 @@ export default function Cover() {
   const [section, setSection] = useState(null);
   const [facultyName, setfacultyName] = useState(null);
   const [facultyDesignation, setfacultyDesignation] = useState(null);
+  const [yourDept, setYourDept] = useState(null);
   const [uniName, setfacultyuniName] = useState(null);
   const [uniOption, setUniOption] = useState(0);
   const [assinTitle, setAssinTitle] = useState(null);
@@ -67,13 +68,17 @@ export default function Cover() {
             <label htmlFor="exampleInputPassword1">Section*</label>
             <input type="text" className="form-control" id="sSection" onChange={(e) => { setSection(e.target.value) }} placeholder="Your Section*" />
           </div>
+          <div className="form-group my-3">
+            <label htmlFor="exampleInputPassword1">Your Department Name*</label>
+            <input type="text" className="form-control" id="tun" onChange={(e) => { setYourDept(e.target.value) }} placeholder="Type your department name*" />
+          </div>
         </div>
         {/* Teacher Details */}
         <div className="cover-section col-md-6">
           <h4 className='text-center'>Teacher Details</h4>
           <div className="form-group my-3">
             <label htmlFor="exampleInputEmail1">Name*</label>
-            <input type="text" className="form-control" id="facultyName" onChange={(e) => { setfacultyName(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Your Name*" />
+            <input type="text" className="form-control" id="facultyName" onChange={(e) => { setfacultyName(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Faculty Name*" />
           </div>
           <div className="form-group my-3">
             <label htmlFor="exampleInputPassword1">Designation*</label>
@@ -97,11 +102,12 @@ export default function Cover() {
           </div>
         </div>
         <div className="cover-section col-md-6">
-          <h4 className='text-center'>Title Section</h4>
+          <h4 className='text-center'>Assignment Title Section</h4>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputEmail1">Title*</label>
-            <input type="text" className="form-control" id="title" onChange={(e) => { setAssinTitle(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Title*" />
+            <label htmlFor="exampleInputEmail1">Assignment Title*</label>
+            <input type="text" className="form-control" id="title" onChange={(e) => { setAssinTitle(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Assignment Title*" />
           </div>
+          
           <div className="form-group my-3">
             <label htmlFor="exampleInputEmail1">Course Code*</label>
             <input type="text" className="form-control" id="coursecode" onChange={(e) => { setCourseCode(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Course Code*" />
@@ -124,6 +130,7 @@ export default function Cover() {
             section={section}
             facultyName={facultyName}
             facultyDesignation={facultyDesignation}
+            uniNameYour={yourDept}
             uniName={uniName}
             uniOption={uniOption}
             assinTitle={assinTitle}
