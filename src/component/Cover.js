@@ -124,7 +124,7 @@ export default function Cover() {
             <input type="date" className="form-control" id="submitionDate" onChange={(e) => { setAssinDate(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Course Code*" />
           </div>
 
-          <button type="submit" className="btn btn-primary"><PDFDownloadLink document={<MyDocument name={name}
+          <button type="submit" className={(id && batch &&section &&facultyName  &&facultyDesignation &&yourDept &&uniName &&assinTitle &&courseCode &&assinNo &&assinDate)?"btn btn-primary":"btn btn-primary disabled"}><PDFDownloadLink document={<MyDocument name={name}
             id={id}
             batch={batch}
             section={section}
