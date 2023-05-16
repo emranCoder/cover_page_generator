@@ -27,24 +27,26 @@ export default function Cover() {
     }
   }
 
-  // const data = {
-  //   name: name,
-  //   ID: id,
-  //   Batch: batch,
-  //   Section: section,
-  //   FacultyName: facultyName,
-  //   FacultyDesigna: facultyDesignation,
-  //   UniName: uniName,
-  //   UniOption: uniOption,
-  //   AssinTitle: assinTitle,
-  //   CourseCode: courseCode,
-  //   AssinNo: assinNo,
-  //   AssinDate: assinDate,
-  // }
+  const data = {
+    name: name,
+    id: id,
+    batch: batch,
+    section: section,
+    facultyName: facultyName,
+    facultyDesignation: facultyDesignation,
+    yourDept: yourDept,
+    uniName: uniName,
+    uniOption: uniOption,
+    assinTitle: assinTitle,
+    courseCode: courseCode,
+    assinNo: assinNo,
+    assinDate: assinDate,
+  }
 
   let handleSubmit = (e) => {
     e.preventDefault();
   }
+
 
   return (
     <>
@@ -108,6 +110,7 @@ export default function Cover() {
             <input type="text" className="form-control" id="title" onChange={(e) => { setAssinTitle(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Assignment Title*" />
           </div>
           
+
           <div className="form-group my-3">
             <label htmlFor="exampleInputEmail1">Course Code*</label>
             <input type="text" className="form-control" id="coursecode" onChange={(e) => { setCourseCode(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Course Code*" />
@@ -121,22 +124,20 @@ export default function Cover() {
           </div>
           <div className="form-group my-3">
             <label htmlFor="exampleInputEmail1">Submission Date*</label>
-            <input type="date" className="form-control" id="submitionDate" onChange={(e) => { setAssinDate(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Course Code*" />
+            <input type="date" className="form-control" id="submitionDate" onChange={(e) => {
+              let month = ["January", "February", "March", "April", "May", "June", "July",
+                "August", "September", "October", "November", "December"]
+              let day = e.target.value;
+              let arr = day.split("-");
+              let ix = (arr[1] < 10) ? arr[1] % 10 : arr[1];
+              let ans = month[ix - 1] + ", " + arr[2] + ", " + arr[0];
+              setAssinDate(ans);
+            }} aria-describedby="emailHelp" placeholder="Enter The Date*" />
           </div>
 
-          <button type="submit" className={(id && batch &&section &&facultyName  &&facultyDesignation &&yourDept &&uniName &&assinTitle &&courseCode &&assinNo &&assinDate)?"btn btn-primary":"btn btn-primary disabled"}><PDFDownloadLink document={<MyDocument name={name}
-            id={id}
-            batch={batch}
-            section={section}
-            facultyName={facultyName}
-            facultyDesignation={facultyDesignation}
-            uniNameYour={yourDept}
-            uniName={uniName}
-            uniOption={uniOption}
-            assinTitle={assinTitle}
-            courseCode={courseCode}
-            assinNo={assinNo}
-            assinDate={assinDate} />} fileName={id + "rafs.pdf"} >Submit
+          <button  type="submit" className={(id && batch && section && facultyName && facultyDesignation && yourDept && uniName && assinTitle && courseCode && assinNo && assinDate) ? "btn btn-primary" : "btn btn-primary disabled"}>
+            <PDFDownloadLink document={<MyDocument  datset={data}
+             />} fileName={id + "rafs.pdf"} >Submit
             <div className='d-none'><PDFViewer></PDFViewer></div>
           </PDFDownloadLink></button>
         </div>

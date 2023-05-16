@@ -72,32 +72,32 @@ const MyDocument = (porps) => {
     <Page size="A4" style={styles.page}>
       <View style={styles.view}>
         <Image img style={styles.image} src={logo} />
-        <Text style={styles.heading} >ASSIGNMENT - {porps.assinNo}</Text>
+        <Text style={styles.heading} >ASSIGNMENT - {porps.datset.assinNo}</Text>
         <View style={{flexDirection: 'row', flexRow: '1', marginTop: '30px'  }}>
           <Text style={styles.titleSection}>Title : </Text>
-          <Text style={{ fontSize: '13px' }}>{porps.assinTitle}</Text>
+          <Text style={{ fontSize: '13px' }}>{porps.datset.assinTitle}</Text>
         </View>
         <View style={styles.section}>
           <Text style={styles.titleSection}>Course Code : </Text>
-          <Text style={{ fontSize: '13px' }}>{porps.courseCode}</Text>
+          <Text style={{ fontSize: '13px' }}>{porps.datset.courseCode}</Text>
         </View>
         <View style={{marginTop: '50px'}}>
           <Text style={styles.titleSection}>Submitted To : </Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.facultyName}</Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.facultyDesignation}</Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {porps.uniName}, MU</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.datset.facultyName}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.datset.facultyDesignation}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {porps.datset.uniName}, MU</Text>
         </View>
         <View style={{marginTop: '50px'}}>
           <Text style={styles.titleSection}>Submitted By : </Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.name}</Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>ID No    : {porps.id}</Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Batch    : {porps.batch}th</Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Section :  {porps.section}</Text>
-          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {porps.uniNameYour}, MU</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{porps.datset.name}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>ID No    : {porps.datset.id}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Batch    : {porps.datset.batch}th</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Section :  {porps.datset.section}</Text>
+          <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {porps.datset.yourDept}, MU</Text>
         </View>
         <View style={{flexDirection: 'row', flexRow: '1', marginTop: '100px'}}>
           <Text style={styles.titleSection}>Date of Submission : </Text>
-          <Text style={{ fontSize: '13px' }}>{porps.assinDate}</Text>
+          <Text style={{ fontSize: '13px' }}>{porps.datset.assinDate}</Text>
         </View>
       </View>
     </Page>
