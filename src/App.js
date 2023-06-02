@@ -1,17 +1,15 @@
 import './App.css';
 import Cover from './component/Cover';
-import Header from './component/Header';
+import NavBar from './component/NavBar';
 import AboutUs from './component/AboutUs';
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <NavBar />
         <div className="container">
           <Routes>
             <Route>

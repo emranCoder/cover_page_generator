@@ -1,1 +1,0 @@
-{(porps.uniOption==1) ? `Dept. of ${porps.uniName}, MU`:"null"}

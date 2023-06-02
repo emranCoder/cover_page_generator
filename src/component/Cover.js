@@ -1,24 +1,87 @@
 import React, { useState } from 'react'
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
-import MyDocument from './MyDocument';
+import { PDFDownloadLink, Font, Page, Text, Image, Document, StyleSheet, View } from '@react-pdf/renderer';
+import logo from '../Metropolitan_university.png';
+import font from './CalibriRegular.ttf'
+import fontBold from './CalibriBold.TTF'
+
+Font.register({
+  family: 'Calibri',
+  format: "truetype",
+  src: font,
+})
+Font.register({
+  family: 'CalibriBold',
+  format: "truetype",
+  src: fontBold,
+})
+
+
+// Create styles
+const styles = StyleSheet.create({
+  page: {
+    width: '8.27in',
+    height: '11.69in',
+    padding: '0.5in',
+    display: 'block',
+    fontFamily: 'Calibri',
+  },
+  view: {
+    border: '1px solid #24214d',
+    width: '100%',
+    height: '100%',
+    display: 'block',
+    borderStyle: 'dashed',
+    borderWidth: '3px',
+    borderRadius: '10px',
+    padding: '0.5in',
+  },
+  image: {
+    width: '350px',
+    alignSelf: 'center',
+    marginTop: '50px',
+    marginBottom: '10px',
+  },
+  titleSection: {
+    fontSize: '13pt',
+    fontFamily: 'CalibriBold',
+  },
+  section: {
+    flexDirection: 'row',
+    flexRow: 1,
+    marginLeft: '20px'
+  },
+  heading: {
+    fontSize: '22pt',
+    fontFamily: 'CalibriBold',
+    alignSelf: 'center',
+    marginTop: '50px',
+    marginBottom: '20px',
+  }
+
+});
+
 
 
 
 export default function Cover() {
 
-  const [name, setName] = useState("");
-  const [id, setId] = useState(null);
-  const [batch, setBatch] = useState(null);
-  const [section, setSection] = useState(null);
-  const [facultyName, setfacultyName] = useState(null);
-  const [facultyDesignation, setfacultyDesignation] = useState(null);
-  const [yourDept, setYourDept] = useState(null);
-  const [uniName, setfacultyuniName] = useState(null);
-  const [uniOption, setUniOption] = useState(0);
-  const [assinTitle, setAssinTitle] = useState(null);
-  const [courseCode, setCourseCode] = useState(null);
-  const [assinNo, setAssinNo] = useState(null);
-  const [assinDate, setAssinDate] = useState(null);
+
+  const [datas, setDatas] = useState({
+    name: "",
+    id: "",
+    batch: "",
+    section: "",
+    facultyName: "",
+    facultyDesignation: "",
+    yourDept: "",
+    techerDept: "",
+    uniName: "",
+    uniOption: "",
+    assinTitle: "",
+    courseCode: "",
+    assinNo: "",
+    assinDate: "",
+  });
 
   let custom = () => {
     let x = document.getElementById('clicked').value;
@@ -27,24 +90,63 @@ export default function Cover() {
     }
   }
 
-  const data = {
-    name: name,
-    id: id,
-    batch: batch,
-    section: section,
-    facultyName: facultyName,
-    facultyDesignation: facultyDesignation,
-    yourDept: yourDept,
-    uniName: uniName,
-    uniOption: uniOption,
-    assinTitle: assinTitle,
-    courseCode: courseCode,
-    assinNo: assinNo,
-    assinDate: assinDate,
+
+  const handleOnchange = (e) => {
+    setDatas({ ...datas, [e.target.name]: e.target.value });
   }
+  const [dataesSubmit, sedataesSubmit] = useState(null);
+
+  const MyDoc = () => (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.view}>
+          <Image img style={styles.image} src={logo} />
+          <Text style={styles.heading} >ASSIGNMENT - {datas.assinNo}</Text>
+          <View style={{ flexDirection: 'row', flexRow: '1', marginTop: '30px', marginLeft: '20px' }}>
+            <Text style={styles.titleSection}>Title : </Text>
+            <Text style={{ fontSize: '13px' }}>{datas.assinTitle}</Text>
+          </View>
+          <View style={styles.section} >
+            <Text style={styles.titleSection}>Course Code : </Text>
+            <Text style={{ fontSize: '13px' }}>{datas.courseCode}</Text>
+          </View>
+          <View style={{ marginTop: '50px', marginLeft: '20px' }}>
+            <Text style={styles.titleSection}>Submitted To : </Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{datas.facultyName}</Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{datas.facultyDesignation}</Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {datas.techerDept}, MU</Text>
+          </View>
+          <View style={{ marginTop: '50px', marginLeft: '20px' }}>
+            <Text style={styles.titleSection}>Submitted By : </Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>{datas.name}</Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>ID No    : {datas.id}</Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Batch    : {datas.batch}th</Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Section :  {datas.section}</Text>
+            <Text style={{ fontSize: '13px', marginLeft: '85px', fontFamily: 'CalibriBold', }}>Dept. of {datas.yourDept}, MU</Text>
+          </View>
+          <View style={{ flexDirection: 'row', flexRow: '1', marginTop: '100px', marginLeft: '20px' }}>
+            <Text style={styles.titleSection}>Date of Submission : </Text>
+            <Text style={{ fontSize: '13px' }}>{dataesSubmit}</Text>
+          </View>
+        </View>
+      </Page>
+    </Document>
+  );
+
 
   let handleSubmit = (e) => {
     e.preventDefault();
+  }
+
+
+  const onchangedate = (e) => {
+    let month = ["January", "February", "March", "April", "May", "June", "July",
+      "August", "September", "October", "November", "December"]
+    let day = e.target.value;
+    let arr = day.split("-");
+    let ix = (arr[1] < 10) ? arr[1] % 10 : arr[1];
+    let ans = month[ix - 1] + ", " + arr[2] + ", " + arr[0];
+    sedataesSubmit(ans);
   }
 
 
@@ -55,24 +157,24 @@ export default function Cover() {
         <div className="cover-section col-md-6 ">
           <h4 className='text-center'>Student Details</h4>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputEmail1">Name*</label>
-            <input type="text" className="form-control" onChange={(e) => { setName(e.target.value) }} id="sName" aria-describedby="emailHelp" placeholder="Enter Your Name" />
+            <label htmlFor="name">Name*</label>
+            <input type="text" className="form-control" onChange={handleOnchange} id="name" name="name" aria-describedby="emailHelp" placeholder="Enter Your Name" />
           </div>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputPassword1">ID*</label>
-            <input type="text" className="form-control" onChange={(e) => { setId(e.target.value) }} id="sId" placeholder="Your ID*" />
+            <label htmlFor="id">ID*</label>
+            <input type="text" className="form-control" onChange={handleOnchange} id="id" name="id" placeholder="Your ID*" />
           </div>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputPassword1">Batch*</label>
-            <input type="text" className="form-control" onChange={(e) => { setBatch(e.target.value) }} id="sBatch" placeholder="Your Batch" />
+            <label htmlFor="batch">Batch*</label>
+            <input type="text" className="form-control" onChange={handleOnchange} id="batch" name="batch" placeholder="Your Batch" />
           </div>
           <div className="form-group my-3">
             <label htmlFor="exampleInputPassword1">Section*</label>
-            <input type="text" className="form-control" id="sSection" onChange={(e) => { setSection(e.target.value) }} placeholder="Your Section*" />
+            <input type="text" className="form-control" id="section" name="section" onChange={handleOnchange} placeholder="Your Section*" />
           </div>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputPassword1">Your Department Name*</label>
-            <input type="text" className="form-control" id="tun" onChange={(e) => { setYourDept(e.target.value) }} placeholder="Type your department name*" />
+            <label htmlFor="yourDept">Your Department Name*</label>
+            <input type="text" className="form-control" id="yourDept" name="yourDept" onChange={handleOnchange} placeholder="Type your department name*" />
           </div>
         </div>
         {/* Teacher Details */}
@@ -80,22 +182,22 @@ export default function Cover() {
           <h4 className='text-center'>Teacher Details</h4>
           <div className="form-group my-3">
             <label htmlFor="exampleInputEmail1">Name*</label>
-            <input type="text" className="form-control" id="facultyName" onChange={(e) => { setfacultyName(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Faculty Name*" />
+            <input type="text" className="form-control" id="facultyName" name="facultyName" onChange={handleOnchange} aria-describedby="emailHelp" placeholder="Enter Faculty Name*" />
           </div>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputPassword1">Designation*</label>
-            <input type="text" className="form-control" id="designation" onChange={(e) => { setfacultyDesignation(e.target.value) }} placeholder="Teacher Designation*" />
+            <label htmlFor="facultyDesignation">Designation*</label>
+            <input type="text" className="form-control" id="facultyDesignation" name="facultyDesignation" onChange={handleOnchange} placeholder="Teacher Designation*" />
           </div>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputPassword1">Department Name*</label>
-            <input type="text" className="form-control" id="tun" onChange={(e) => { setfacultyuniName(e.target.value) }} placeholder="Type your department name*" />
+            <label htmlFor="techerDept">Department Name*</label>
+            <input type="text" className="form-control" id="techerDept" name="techerDept" onChange={handleOnchange} placeholder="Type your department name*" />
           </div>
           <div className="form-group my-3">
             <label htmlFor="exampleInputPassword1">Universtiy Logo*</label>
             <select className="form-select" id='clicked' onClick={custom} defaultValue aria-label="Default select example">
-              <option value='0' onClick={(e) => { setUniOption(e.target.value) }} >Select University</option>
-              <option value="1" onClick={(e) => { setUniOption(e.target.value) }} >Metropolitan University</option>
-              <option value="2" onClick={(e) => { setUniOption(e.target.value) }} >Custom</option>
+              <option value='0' onClick={handleOnchange} >Select University</option>
+              <option value="1" onClick={handleOnchange} >Metropolitan University</option>
+              <option value="2" onClick={handleOnchange} >Custom</option>
             </select>
           </div>
           <div className="mb-3 d-none" id='uni_logo'>
@@ -106,44 +208,46 @@ export default function Cover() {
         <div className="cover-section col-md-6">
           <h4 className='text-center'>Assignment Title Section</h4>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputEmail1">Assignment Title*</label>
-            <input type="text" className="form-control" id="title" onChange={(e) => { setAssinTitle(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Assignment Title*" />
+            <label htmlFor="assinTitle">Assignment Title*</label>
+            <input type="text" className="form-control" id="assinTitle" name="assinTitle" onChange={handleOnchange} aria-describedby="emailHelp" placeholder="Enter Assignment Title*" />
           </div>
-          
+
 
           <div className="form-group my-3">
-            <label htmlFor="exampleInputEmail1">Course Code*</label>
-            <input type="text" className="form-control" id="coursecode" onChange={(e) => { setCourseCode(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Course Code*" />
+            <label htmlFor="courseCode">Course Code*</label>
+            <input type="text" className="form-control" id="courseCode" name="courseCode" onChange={handleOnchange} aria-describedby="emailHelp" placeholder="Enter Course Code*" />
           </div>
         </div>
         <div className="cover-section col-md-6">
           <h4 className='text-center'>Additional Info</h4>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputEmail1">Assignment No*</label>
-            <input type="number" className="form-control" id="asignmentNo" onChange={(e) => { setAssinNo(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter Assignment No*" />
+            <label htmlFor="assinNo">Assignment No*</label>
+            <input type="number" className="form-control" id="assinNo" name="assinNo" onChange={handleOnchange} aria-describedby="emailHelp" placeholder="Enter Assignment No*" />
           </div>
           <div className="form-group my-3">
-            <label htmlFor="exampleInputEmail1">Submission Date*</label>
-            <input type="date" className="form-control" id="submitionDate" onChange={(e) => {
-              let month = ["January", "February", "March", "April", "May", "June", "July",
-                "August", "September", "October", "November", "December"]
-              let day = e.target.value;
-              let arr = day.split("-");
-              let ix = (arr[1] < 10) ? arr[1] % 10 : arr[1];
-              let ans = month[ix - 1] + ", " + arr[2] + ", " + arr[0];
-              setAssinDate(ans);
-            }} aria-describedby="emailHelp" placeholder="Enter The Date*" />
+            <label htmlFor="assinDate">Submission Date*</label>
+            <input type="date" className="form-control" id="assinDate" name="assinDate" onChange={onchangedate} aria-describedby="emailHelp" placeholder="Enter The Date*" />
           </div>
+          <button type="submit" className={`btn btn-primary ${((datas.name && datas.id && datas.batch && datas.section && datas.facultyName && datas.facultyDesignation && datas.yourDept && datas.techerDept && datas.assinTitle && datas.courseCode && datas.assinNo && dataesSubmit) ? " " : " disabled")}`}>
 
-          <button  type="submit" className={(id && batch && section && facultyName && facultyDesignation && yourDept && uniName && assinTitle && courseCode && assinNo && assinDate) ? "btn btn-primary" : "btn btn-primary disabled"}>
-            <PDFDownloadLink document={<MyDocument  datset={data}
-             />} fileName={id + "rafs.pdf"} >Submit
-            <div className='d-none'><PDFViewer></PDFViewer></div>
-          </PDFDownloadLink></button>
+            <PDFDownloadLink document={<MyDoc />} fileName={`${datas.id}_${datas.name}_EC.pdf`}>
+              {(() => {
+                if ((datas.name && datas.id && datas.batch && datas.section && datas.facultyName && datas.facultyDesignation && datas.yourDept && datas.techerDept && datas.assinTitle && datas.courseCode && datas.assinNo && dataesSubmit)) {
+                  return ({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now! 😉')
+                }else
+                {
+                  return "Put Values 🙂"
+                }
+              })()}
+
+            </PDFDownloadLink>
+          </button>
+
         </div>
       </form>
     </>
   )
 }
+
 
 
