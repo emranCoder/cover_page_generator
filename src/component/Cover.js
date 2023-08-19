@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: '50px',
     marginBottom: '20px',
+    textTransform: 'uppercase',
   }
 
 });
@@ -96,12 +97,41 @@ export default function Cover() {
   }
   const [dataesSubmit, sedataesSubmit] = useState(null);
 
+
+
+  //from active
+  const [disStyle, setdisStyle] = useState({
+    name: "",
+    disOff: true,
+    disStyle:{
+      "transation": "0.1s",
+      "display": "none",
+    }
+    
+
+  });
+
+  const handleDisp = (e) => {
+
+    setdisStyle({
+      disOff: false,
+      name: e.target.name,
+      disStyle:{
+        "display": "flex",
+      }
+      
+    }
+    );
+    
+
+  }
+
   const MyDoc = () => (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.view}>
           <Image img style={styles.image} src={logo} />
-          <Text style={styles.heading} >ASSIGNMENT - {datas.assinNo}</Text>
+          <Text style={styles.heading} >{disStyle.name} - {datas.assinNo}</Text>
           <View style={{ flexDirection: 'row', flexRow: '1', marginTop: '30px', marginLeft: '20px' }}>
             <Text style={styles.titleSection}>Title : </Text>
             <Text style={{ fontSize: '13px' }}>{datas.assinTitle}</Text>
@@ -150,9 +180,15 @@ export default function Cover() {
   }
 
 
+
   return (
     <>
-      <form onSubmit={handleSubmit} className="row">
+      <div className={`choose-type ${disStyle.disOff? "d-grid":"d-none"} justify-content-center m-5`}>
+        <h2 className='m-1 mb-3 text-center'>Choose Your Cover Type👇</h2>
+        <a name="Assignment" onClick={handleDisp} className="btn btn-dark btn-lg m-2" href="/#" role="button">Assignment</a>
+        <a name="Lab Report" onClick={handleDisp} className="btn btn-danger btn-lg m-2" href="/#" role="button">Lab Report</a>
+      </div>
+      <form style={disStyle.disStyle} onSubmit={handleSubmit} className="row">
         {/* Student Details */}
         <div className="cover-section col-md-6 ">
           <h4 className='text-center'>Student Details</h4>
@@ -206,10 +242,10 @@ export default function Cover() {
           </div>
         </div>
         <div className="cover-section col-md-6">
-          <h4 className='text-center'>Assignment Title Section</h4>
+          <h4 className='text-center'>{disStyle.name} Title Section</h4>
           <div className="form-group my-3">
-            <label htmlFor="assinTitle">Assignment Title*</label>
-            <input type="text" className="form-control" id="assinTitle" name="assinTitle" onChange={handleOnchange} aria-describedby="emailHelp" placeholder="Enter Assignment Title*" />
+            <label htmlFor="assinTitle">{disStyle.name} Title*</label>
+            <input type="text" className="form-control" id="assinTitle" name="assinTitle" onChange={handleOnchange} aria-describedby="emailHelp" placeholder={`Enter ${disStyle.name} Title*`} />
           </div>
 
 
@@ -221,8 +257,8 @@ export default function Cover() {
         <div className="cover-section col-md-6">
           <h4 className='text-center'>Additional Info</h4>
           <div className="form-group my-3">
-            <label htmlFor="assinNo">Assignment No*</label>
-            <input type="number" className="form-control" id="assinNo" name="assinNo" onChange={handleOnchange} aria-describedby="emailHelp" placeholder="Enter Assignment No*" />
+            <label htmlFor="assinNo">{disStyle.name} No*</label>
+            <input type="number" className="form-control" id="assinNo" name="assinNo" onChange={handleOnchange} aria-describedby="emailHelp" placeholder={`Enter ${disStyle.name} No*`} />
           </div>
           <div className="form-group my-3">
             <label htmlFor="assinDate">Submission Date*</label>
@@ -234,8 +270,7 @@ export default function Cover() {
               {(() => {
                 if ((datas.name && datas.id && datas.batch && datas.section && datas.facultyName && datas.facultyDesignation && datas.yourDept && datas.techerDept && datas.assinTitle && datas.courseCode && datas.assinNo && dataesSubmit)) {
                   return ({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now! 😉')
-                }else
-                {
+                } else {
                   return "Put Values 🙂"
                 }
               })()}
